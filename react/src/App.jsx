@@ -8,7 +8,8 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />}/>
+          <Route index element={<Home />} />
+
         </Route>
       </Routes>
     </div>
