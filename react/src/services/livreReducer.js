@@ -21,13 +21,16 @@ const livreReducer = (state = initialState, action) => {
       };
 
     case "UPDATE_LIVRE":
-      const modifiedLivres = state.livres.find(
-        (livre) => livre.id == action.payload.id
-      );
-      modifiedLivres.titre = action.payload.titre;
-      modifiedLivres.categorie = action.payload.categorie;
-
-      return state;
+      return {
+        ...state,
+        livres: state.livres.map((livre) => {
+          if (livre.id == action.payload.id) {
+            livre.titre = action.payload.newLivre.titre;
+            livre.categorie = action.payload.newLivre.categorie;
+          }
+          return livre;
+        }),
+      };
     default:
       return state;
   }
